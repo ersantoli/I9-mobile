@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -71,6 +71,24 @@
 section{
   padding: 20px;
 }
+dialog{
+  border:2px solid aqua;
+  border-radius: .5rem;
+  box-shadow: 0 0 1rem rgb(0 0 0 / .3);
+  width: 80%;
+  margin: 0  auto;
+  background-color: black;
+  text-align: center;
+}
+
+dialog::backdrop{
+  background-color: rgba(229, 30, 30, 0.5);
+}
+
+
+a{
+  color: white;
+}
 
     </style>
 
@@ -128,11 +146,7 @@ section{
 
 <section>
   <h2>Innovare</h2>
-  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-    Incidunt ipsam a eaque, tempore sed rerum amet commodi! Officia, consequuntur!
-     Veritatis autem repellendus facere asperiores distinctio at quo! Incidunt, similique eaque. <br>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure alias atque accusantium eum, 
-    facere deleniti in fuga ducimus odio autem temporibus eos tenetur sapiente a, dignissimos ipsam voluptatum delectus. Numquam!</p>
+  <p>A marcenaria innovare é uma fabricante familiar que começou seus negocios a cerca de 10 anos. <br>Buscamos crescer no mercado, atravessando todas as barreiras e aprendendo com o passar dos anos para melhor atender nossos cliente e chegarmos a perfeição</p>
   </section>
 
   
@@ -262,13 +276,16 @@ section{
 
                 
                      <div class="container-3d" onclick="shiftRight()">
+                     
                       <div class="button" onclick="shiftLeft()"><img src="https://image.ibb.co/mRsEb7/left_arrow.png" alt=""></div>
                       <div class="cards-wrapper">
                           <ul class="cards__container">
+                   
                             <li class="box" style="background-color:rgb(255, 102, 0)"><img src="assets/image04.jpg" alt=""></li>
                              <li class="box"><img src="assets/image01.jpg" alt=""></li> 
                              <li class="box"><img src="assets/image03.jpg"  alt=""></li> 
-                             <li class="box"><a href="https://www.instagram.com/innovar_eplanejados/"><img src="assets/image02.jpg" alt=""></a></li> 
+                            <!--<li class="box"><a href="https://www.instagram.com/innovar_eplanejados/"><img src="assets/image02.jpg"  onclick="openModal()" alt=""></a></li>-->  
+                            <li class="box"><img src="assets/image02.jpg"  onclick="openModal()" alt=""></li>
                              <li class="box"><img src="assets/image05.png" alt=""></li> 
                              <li class="box box--hide"><img src="assets/image06.jpg" alt=""></li> 
                              <li class="box box--hide"><img src="assets/image07.jpg" alt=""></li>
@@ -279,12 +296,31 @@ section{
                           </div>
                       </div>
                       <div class="button" onclick="shiftRight()"><img src="https://image.ibb.co/dfPSw7/right_arrow.png" alt=""></div>
+                    
+                      <!--Modal-->
+                   <dialog>
+                    <h2 style="color:aqua">Conheça nosso Instagram</h2>
+                    <p style="color:white">Clicando em <strong style="color:aqua">SIM</strong>  você Visitara nossa pagina no Instagram</p>
+                  <button class="btn btn-primary"><a href="https://www.instagram.com/innovar_eplanejados/">Sim</a></button>
+                  <button class="btn btn-danger"onclick="closeModal()">Depois</button>
+                   </dialog>
+                       <!--Modal-->
                   </div>
+                 
                   
                     
 <script>
 
 var header = document.getElementById('container')
+const modal = document.querySelector('dialog')
+
+function openModal(){
+  modal.show()
+  modal.style.position = 'absolute';
+}
+function closeModal(){
+  modal.close()
+}
 
 window.addEventListener('scroll', function(){
   header.style.opacity = 1 -  +window.pageYOffset/550+''
