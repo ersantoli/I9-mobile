@@ -16,7 +16,7 @@ body {
  --card2-gradient-color2: #E100FF;
 }
 .card-wrap{
-    width: 90%;
+    width: 100%;
     background: #fff;
     border-radius: 20px;
     border: 5px solid #fff;
